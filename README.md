@@ -6,33 +6,109 @@
 
 AntigravityXHermes integrates **Hermes Agent** with the **Google Antigravity** provider via official AGY CLI and Agent Client Protocol (ACP) transport.
 
+> **Credits & Acknowledgements:**
+> AntigravityXHermes is built upon the open-source foundation of **[Hermes Agent](https://github.com/NousResearch/hermes-agent)** developed by **[Nous Research](https://nousresearch.com)**. All core agent intelligence, autonomous learning loops, procedural skills, tool calling engine, subagent delegation, and session architectures are credited to Nous Research. This project provides a specialized bridge to Google Antigravity, custom security guards, and streamlined multi-platform launchers.
+
+---
+
 ### Features
+- **Hermes Agent Core**: Full power of Nous Research Hermes Agent — learning loops, tool calling, persistent memory, subagents, and procedural skills.
 - **Google Antigravity Provider**: Native integration using official AGY CLI and ACP transport.
+- **Official Google OAuth**: Direct authentication via `agy login` or `python apa.py auth login`.
 - **APA Security Plugin**: Comprehensive runtime security (`plugins/apa-security`) featuring filesystem guard, skills guard, command validator, policy engine, and audit logger.
 - **APA Skills Plugin**: Skills management CLI and dynamic registry (`plugins/apa-skills`).
 - **Unified Launchers**: Easy startup via `apa` (Bash), `apa.cmd` (Command Prompt), and `apa.ps1` (PowerShell).
 - **AGY Session Picker**: Interactive TUI session resume picker.
-- **Hermes Agent Core**: Full power of Nous Research Hermes Agent including learning loops, tool calling, memory, subagents, and skills.
 
-### Quick Start
+---
 
-1. Copy configuration template:
+### Panduan Instalasi & Penggunaan (Complete Setup Guide)
+
+#### 1. Prasyarat (Prerequisites)
+- **Python**: Versi 3.10 atau lebih baru (disarankan menggunakan [uv](https://astral.sh/uv) atau Python 3.11+).
+- **Git**: Terpasang di sistem.
+- **Google Antigravity (AGY CLI)**: Pastikan AGY CLI terpasang dan dapat diakses dari terminal/PATH.
+
+#### 2. Kloning Repository (Clone Repository)
 ```bash
+git clone https://github.com/ahmaddausfor3490-alt/AntigravityXHermes.git
+cd AntigravityXHermes
+```
+
+#### 3. Setup Virtual Environment & Dependensi
+Gunakan `uv` (sangat cepat dan direkomendasikan):
+```bash
+uv venv
+uv pip install -e .
+```
+Atau menggunakan `python venv` standar:
+```bash
+# Windows
+python -m venv .venv
+.venv\Scripts\activate
+pip install -e .
+
+# Linux / macOS
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
+
+#### 4. Hubungkan Akun Google Antigravity (OAuth Login)
+AntigravityXHermes menggunakan autentikasi resmi Google OAuth melalui AGY CLI. Token tidak disimpan di file teks repository, melainkan aman di credential store lokal OS:
+
+```bash
+# Melalui APA helper:
+python apa.py auth login
+
+# Atau langsung via AGY CLI:
+agy login
+```
+Browser akan terbuka otomatis untuk konfirmasi akun Google. Setelah selesai, cek status koneksi:
+```bash
+python apa.py auth status
+```
+
+#### 5. Siapkan Konfigurasi
+Salin template konfigurasi:
+```bash
+# Windows (PowerShell)
+Copy-Item config.example.yaml config.yaml
+
+# Windows (Command Prompt)
+copy config.example.yaml config.yaml
+
+# Linux / macOS / Git Bash
 cp config.example.yaml config.yaml
 ```
 
-2. Run launcher:
-```powershell
-.\apa.ps1
-```
-Or in Command Prompt:
-```cmd
-apa.cmd
-```
-Or in Bash:
-```bash
-./apa
-```
+#### 6. Jalankan Agent
+Pilih launcher sesuai terminal yang Anda gunakan:
+
+- **Windows PowerShell**:
+  ```powershell
+  .\apa.ps1
+  ```
+- **Windows Command Prompt**:
+  ```cmd
+  apa.cmd
+  ```
+- **Linux / macOS / Git Bash**:
+  ```bash
+  chmod +x apa
+  ./apa
+  ```
+- **Langsung via Python**:
+  ```bash
+  python apa.py chat      # Mode obrolan langsung
+  python apa.py tui       # Antarmuka TUI interaktif
+  python apa.py resume    # Pilih sesi percakapan sebelumnya
+  ```
+
+#### 7. Menggunakan Provider Lain (Opsional)
+Jika ingin menggunakan model di luar Google Antigravity (seperti Nous Portal, OpenRouter, OpenAI, atau Anthropic):
+- Atur API key di `config.yaml` atau environment variable.
+- Gunakan perintah Hermes: `hermes model` atau slash command di dalam chat: `/model provider:model-name`.
 
 ---
 
