@@ -1,0 +1,10 @@
+name: apa-skills
+version: 1.0.0
+description: "APA Skills Registry & Management — centralized skill discovery, metadata tracking, precedence orchestration, and status inspection."
+author: "APA Engineering Team"
+manifest_version: 2
+config_schema:
+  enabled:
+    type: bool
+    default: true
+    description: "Enable or disable APA Skills Registry plugin."

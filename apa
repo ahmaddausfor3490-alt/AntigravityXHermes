@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export HERMES_HOME="$SCRIPT_DIR/data/hermes-home"
+export UV_PROJECT_ENVIRONMENT="$SCRIPT_DIR/.venv"
+export PATH="$SCRIPT_DIR/bin:$PATH"
+PY="$SCRIPT_DIR/.venv/Scripts/python.exe"
+if [ ! -f "$PY" ]; then
+    echo "Error: APA Python not found at $PY" >&2
+    exit 1
+fi
+exec "$PY" "$SCRIPT_DIR/apa.py" "$@"

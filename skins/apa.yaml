@@ -1,0 +1,132 @@
+# APA (Antigravity Personal Agent) Skin Specification
+# Target design: Minimalist Professional
+# Themes the CLI, TUI, and desktop surfaces.
+
+name: apa
+description: APA Minimalist Professional — Sky blue, crisp slate, and obsidian canvas
+
+colors:
+  # Canvas & Base surfaces
+  background: "#0B0F14"
+  status_bar_bg: "#0B0F14"
+  completion_menu_bg: "#0B0F14"
+  completion_menu_current_bg: "#1B2430"
+  completion_menu_meta_bg: "#0B0F14"
+  completion_menu_meta_current_bg: "#1B2430"
+  selection_bg: "#1E293B"
+  voice_status_bg: "#0B0F14"
+
+  # Panel & Rules
+  banner_border: "#1E293B"
+  input_rule: "#1E293B"
+  session_border: "#334155"
+
+  # Typography & Foreground
+  banner_text: "#E6EDF3"
+  ui_text: "#E6EDF3"
+  status_bar_text: "#E6EDF3"
+  banner_dim: "#64748B"
+  status_bar_dim: "#64748B"
+
+  # Brand & Accents
+  banner_title: "#38BDF8"
+  banner_accent: "#38BDF8"
+  ui_primary: "#38BDF8"
+  ui_accent: "#38BDF8"
+  ui_label: "#38BDF8"
+  session_label: "#38BDF8"
+  prompt: "#38BDF8"
+  response_border: "#38BDF8"
+  status_bar_strong: "#38BDF8"
+  shell_dollar: "#38BDF8"
+
+  # Semantic States
+  ui_ok: "#22C55E"
+  status_bar_good: "#22C55E"
+  ui_warn: "#F59E0B"
+  status_bar_warn: "#F59E0B"
+  status_bar_bad: "#F59E0B"
+  ui_error: "#EF4444"
+  status_bar_critical: "#EF4444"
+
+light_colors:
+  background: "#F8FAFC"
+  status_bar_bg: "#F1F5F9"
+  completion_menu_bg: "#F1F5F9"
+  completion_menu_current_bg: "#E2E8F0"
+  selection_bg: "#E2E8F0"
+  voice_status_bg: "#F1F5F9"
+  banner_border: "#CBD5E1"
+  input_rule: "#CBD5E1"
+  session_border: "#94A3B8"
+  banner_text: "#0F172A"
+  ui_text: "#0F172A"
+  status_bar_text: "#334155"
+  banner_dim: "#64748B"
+  status_bar_dim: "#64748B"
+  banner_title: "#0284C7"
+  banner_accent: "#0284C7"
+  ui_primary: "#0284C7"
+  ui_accent: "#0284C7"
+  ui_label: "#0284C7"
+  session_label: "#0284C7"
+  prompt: "#0284C7"
+  response_border: "#0284C7"
+  status_bar_strong: "#0284C7"
+  shell_dollar: "#0284C7"
+  ui_ok: "#16A34A"
+  status_bar_good: "#16A34A"
+  ui_warn: "#D97706"
+  status_bar_warn: "#D97706"
+  status_bar_bad: "#D97706"
+  ui_error: "#DC2626"
+  status_bar_critical: "#DC2626"
+
+branding:
+  agent_name: "APA — Antigravity Personal Agent"
+  welcome: "Welcome to APA (Antigravity Personal Agent)! Powered by Hermes."
+  goodbye: "Goodbye from APA!"
+  response_label: " APA "
+  prompt_symbol: "apa >"
+  help_header: "(APA) Available Commands"
+
+tool_prefix: "│"
+
+spinner:
+  waiting_faces:
+    - "[·]"
+    - "[··]"
+    - "[···]"
+    - "[··]"
+  thinking_faces:
+    - "(•)"
+    - "(••)"
+    - "(•••)"
+    - "(••••)"
+  thinking_verbs:
+    - "analyzing"
+    - "evaluating"
+    - "synthesizing"
+    - "reasoning"
+    - "formulating"
+    - "processing"
+    - "verifying"
+  wings:
+    - ["[", "]"]
+    - ["⟦", "⟧"]
+
+banner_hero: |
+  [#38BDF8]      ┌─┐ ┌─┐ ┌─┐[/]
+  [#38BDF8]      │ │ ├─┘ ├─┤[/]
+  [#38BDF8]      └─┘ ┴   ┴ ┴[/]
+  [dim #64748B]  ───────────────────[/]
+  [bold #E6EDF3]  Antigravity Agent[/]
+  [dim #38BDF8]  Powered by Hermes[/]
+
+banner_logo: |
+  [bold #38BDF8]   █████╗ ██████╗  █████╗ [/][bold #E6EDF3]   Antigravity Personal Agent[/]
+  [bold #38BDF8]  ██╔══██╗██╔══██╗██╔══██╗[/][dim #64748B]   Minimalist Professional Edition[/]
+  [bold #38BDF8]  ███████║██████╔╝███████║[/][dim #38BDF8]   Powered by Hermes Core Runtime[/]
+  [bold #38BDF8]  ██╔══██║██╔═══╝ ██╔══██║[/]
+  [bold #38BDF8]  ██║  ██║██║     ██║  ██║[/]
+  [bold #38BDF8]  ╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝[/]

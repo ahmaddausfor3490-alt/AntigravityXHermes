@@ -1,0 +1,28 @@
+# AntigravityXHermes Configuration Example
+# Copy this file to config.yaml and customize for your environment.
+
+display:
+  skin: apa
+
+telemetry:
+  shared_metrics:
+    enabled: false
+    send: false
+
+model:
+  default: gemini-4-argon-medium
+  provider: antigravity
+  base_url: process://antigravity
+  api_mode: chat_completions
+
+delegation:
+  model: gemini-4-neon-high
+  provider: antigravity
+
+# Optional custom providers
+# providers:
+#   custom-provider:
+#     name: Custom Provider
+#     base_url: http://localhost:8000/v1
+#     api_key: ${CUSTOM_API_KEY}
+#     api_mode: chat_completions

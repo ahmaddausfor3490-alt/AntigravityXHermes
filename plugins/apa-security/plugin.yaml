@@ -1,0 +1,73 @@
+name: apa-security
+version: 1.0.0
+description: "APA Security Guard — policy engine, workspace & symlink boundary validator, PowerShell/shell command validator, permission manager, and redacted JSONL audit logger."
+author: "APA Security Team"
+manifest_version: 2
+provides_hooks:
+  - pre_tool_call
+  - post_tool_call
+config_schema:
+  enabled:
+    type: bool
+    default: true
+    description: "Enable or disable APA Security Guard enforcement."
+  policy_mode:
+    type: str
+    default: "standard"
+    description: "Security enforcement mode: strict, standard, or permissive."
+  workspace_root:
+    type: str
+    default: ""
+    description: "Canonical workspace boundary path (defaults to current agent working directory)."
+  enforce_workspace_boundary:
+    type: bool
+    default: true
+    description: "Block file and shell access outside the workspace root."
+  allow_read:
+    type: bool
+    default: true
+    description: "Allow read operations within the workspace."
+  allow_write:
+    type: bool
+    default: true
+    description: "Allow write and patch operations within the workspace."
+  allow_delete:
+    type: bool
+    default: false
+    description: "Allow file deletion operations."
+  allow_execute:
+    type: bool
+    default: true
+    description: "Allow safe terminal and code execution."
+  require_confirmation_for_write:
+    type: bool
+    default: false
+    description: "Require explicit user confirmation before file write/patch."
+  require_confirmation_for_delete:
+    type: bool
+    default: true
+    description: "Require explicit user confirmation before file deletion."
+  require_confirmation_for_execute:
+    type: bool
+    default: false
+    description: "Require explicit user confirmation before command execution."
+  require_confirmation_for_high_risk:
+    type: bool
+    default: true
+    description: "Require explicit user confirmation for HIGH risk operations."
+  unattended_confirmation_action:
+    type: str
+    default: "approve_hook"
+    description: "How to handle REQUIRE_CONFIRMATION without a custom callback: approve_hook (use Hermes fail-closed approval gate) or deny."
+  blocked_commands:
+    type: list
+    default: []
+    description: "Additional command substrings or regex patterns to block."
+  blocked_paths:
+    type: list
+    default: []
+    description: "Additional path segments or filenames to block."
+  audit_enabled:
+    type: bool
+    default: true
+    description: "Write credential-redacted JSONL security audit logs."
